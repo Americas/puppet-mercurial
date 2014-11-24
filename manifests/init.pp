@@ -37,7 +37,7 @@ class mercurial(
   }
 
   file { 'hgrc':
-    ensure  => $ensure,
+    ensure  => file,
     path    => "${$conf_dir}/${$conf_file}",
     content => template('mercurial/hgrc.erb'),
     require => Package['hg'],
@@ -45,7 +45,7 @@ class mercurial(
 
   if $user_home {   
     file { 'user hgrc':
-      ensure  => $ensure,
+      ensure  => file,
       path    => "${$user_home}/.${$conf_file}",
       content => template('mercurial/u-hgrc.erb'),
       require => Package['hg'],
