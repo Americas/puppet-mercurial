@@ -32,7 +32,7 @@ class mercurial(
 
   package { 'hg' :
     name     => $package_name,
-    provider => $package_provider
+    provider => $package_provider,
     ensure   => $ensure
   }
 
